@@ -1,5 +1,5 @@
 //Hey Kiddo
-/*const checkAge = function (age) {
+const checkAge = function (age) {
     if (age >= 18) {
         return true;
     }
@@ -9,33 +9,48 @@
   }; 
 
 const greeting = function (age) {
-    checkAge(age);
-    if true {
-        console.log("Hello there")
+    if (checkAge(age)) {
+        return"Hello there";
     }
     else {
-        console.log("Hey Kiddo");
+        return "Hey Kiddo";
     }
   };
 
-  greeting(21);
-*/
+  console.log(greeting(21));
+  console.log(greeting(16));
 
-  //VAT Calculations
+
+
+//VAT Calculation 1
   const calculateVatAmount = function(basePrice, vatPercentage){
-    const vatAmount = basePrice*(vatPercentage/100);
-    console.log(vatAmount);
+    return basePrice*(vatPercentage/100);
 };
 
-  const calculateTotalprice = function(basePrice, vatAmount){
-    const totalPrice = basePrice + vatAmount;
-    console.log(totalPrice);
+  const calculateTotalprice = function(basePrice, vatPercentage){
+    const vatAmount = calculateVatAmount(basePrice, vatPercentage);
+    return basePrice + vatAmount;
 }
 
 
-calculateTotalprice(100,21);
+console.log(calculateTotalprice(100,21));
+console.log(calculateTotalprice(10,9));
 
 
+//VAT Calculation 2
+const calculateBasePrice = function(priceIncludingVAT, VATPercentage) {
+    const basePrice = priceIncludingVAT / ((100 + VATPercentage) / 100);
+    return basePrice;
+};
+
+const calculateBasePriceAndVAT = function(priceIncludingVAT, VATPercentage) {
+    const basePrice = calculateBasePrice(priceIncludingVAT, VATPercentage);
+    const VAT = priceIncludingVAT - basePrice;
+    return [basePrice, VAT];
+};
+
+console.log(calculateBasePriceAndVAT(1210, 21));
+console.log(calculateBasePriceAndVAT(2.18, 9));
   
   /*makeNoise();
 
